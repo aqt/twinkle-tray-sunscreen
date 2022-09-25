@@ -1,0 +1,35 @@
+export default {
+    // Path to your twinkle tray binary
+    binary: "C:\\path\\to\\Twinkle Tray.exe",
+
+    // Geographical coordinates to use when calculating sun times.  One easy way
+    // to get them is by right-clicking on your position in google maps
+    coordinates: {
+        latitude: 59.326799,
+        longitude: 18.071681
+    },
+
+    /*  What brightness to set at which time.  Value range is 0 - 100.
+        You don't need all properties, so feel free to remove lines you don't
+        care about.  For example { sunrise: 100, sunset: 0 } is perfectly fine
+
+        Properties are the same as what suncalc.getTimes() returns,
+        documentation copied here for your convenience
+    */
+    brightness: {
+        sunrise: 100,        // sunrise (top edge of the sun appears on the horizon)
+        sunriseEnd: 100,     // sunrise ends (bottom edge of the sun touches the horizon)
+        goldenHourEnd: 100,  // morning golden hour (soft light, best time for photography) ends
+        solarNoon: 100,      // solar noon (sun is in the highest position)
+        goldenHour: 100,     // evening golden hour starts
+        sunsetStart: 100,    // sunset starts (bottom edge of the sun touches the horizon)
+        sunset: 100,         // sunset (sun disappears below the horizon, evening civil twilight starts)
+        dusk: 100,           // dusk (evening nautical twilight starts)
+        nauticalDusk: 100,   // nautical dusk (evening astronomical twilight starts)
+        night: 100,          // night starts (dark enough for astronomical observations)
+        nadir: 100,          // nadir (darkest moment of the night, sun is in the lowest position)
+        nightEnd: 100,       // night ends (morning astronomical twilight starts)
+        nauticalDawn: 100,   // nautical dawn (morning nautical twilight starts)
+        dawn: 100,           // dawn (morning nautical twilight ends, morning civil twilight starts)
+    }
+}
