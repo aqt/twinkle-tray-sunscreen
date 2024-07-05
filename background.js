@@ -15,6 +15,7 @@ function handleUpdate() {
         const lat = config.coordinates.latitude
         const long = config.coordinates.longitude
 
+        console.log('New calculation at ' + now.toISOString())
         sunTimes = getSunTimes(now, lat, long)
 
         const last = sunTimes[sunTimes.length - 1]
@@ -88,6 +89,11 @@ function getSunTimes(time, lat, long) {
 
     for (const prop of Object.keys(times)) {
         if (!config.brightness.hasOwnProperty(prop)) {
+            delete times[prop]
+        } else if (isNaN(times[prop])) {
+            // Object will contain invalid dates if the event time cannot be calculated.
+            // For example 'nauticalDawn' may not occur in high-latitude summer.
+            console.warn(`${prop} is configured but does not occur in the current period`)
             delete times[prop]
         }
     }
